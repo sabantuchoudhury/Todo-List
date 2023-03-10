@@ -40,9 +40,17 @@ memoInput.addEventListener('submit', (e) => {
 memos.addEventListener('click', (e) => {
     if (e.target.classList.contains('remove-task')) {
         const taskId = e.target.closest('li').id
+        console.log(taskId)
 
         removeTask(taskId);
     }
+})
+
+
+memos.addEventListener('input', (e) => {
+    const taskId = e.target.closest('li').id
+
+    completeTask(taskId, e.target)
 })
 
 
@@ -75,23 +83,43 @@ function createTask(task) {
 }
 
 function countTasks() {
-    const completeTasksArray = tasksArray.filter((task) => {
+    const completeTasksArray = tasksArray.filter((task) => (
         task.isCompleted === true
-    })
+    ))
 
     totalTasks.textContent = tasksArray.length;
+    console.log(completeTasksArray.length)
     completedTasks.textContent = completeTasksArray.length;
     remainingTasks.textContent = tasksArray.length - completeTasksArray.length;
 }
 
 function removeTask(taskId) {
-    tasksArray = tasksArray.filter((task) => {
-        task.id != parseInt(taskId)
-    })
+    tasksArray = tasksArray.filter((task) => (
+        task.id !== parseInt(taskId)
+    ))
+
+    console.log(tasksArray)
 
     localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 
     document.getElementById(taskId).remove();
 
     countTasks();
+}
+
+function completeTask(taskId, element) {
+    const task = tasksArray.find((task) => task.id === parseInt(taskId))
+    const parent = element.closest('li')
+
+    task.isCompleted = !task.isCompleted
+
+    if (task.isCompleted) {
+        parent.classList.add('complete')
+    } else {
+        parent.classList.remove('complete')
+    }
+
+    localStorage.setItem('tasksArray', JSON.stringify(tasksArray))
+
+    countTasks()
 }

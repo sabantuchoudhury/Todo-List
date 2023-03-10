@@ -53,6 +53,7 @@ main {
 }
 
 .memos li {
+    text-decoration: none;
     padding: 40px;
     width: 700px;
     height: 60px;
@@ -62,6 +63,10 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.memos li.complete {
+    text-decoration: line-through;
 }
 
 .memos li input {
