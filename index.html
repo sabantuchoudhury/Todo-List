@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>TO-DO LIST</h1>
+
+            <form action="" id="memo-input">
+                <input type="text" name="task-name" placeholder="Buy milk">
+                <button type="submit">Add task</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <ul id="stats">
+                <li>
+                    <span>Remaining</span>
+                    <span id="remaining-tasks">0</span>
+                </li>
+                <li>
+                    <span>Completed</span>
+                    <span id="completed-tasks">0</span>
+                </li>
+                <li>
+                    <span>Total</span>
+                    <span id="total-tasks">0</span>
+                </li>
+            </ul>
+
+            <ul class="memos">
+                
+            </ul>
+        </div>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>
