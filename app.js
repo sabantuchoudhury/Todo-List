@@ -47,10 +47,11 @@ memos.addEventListener('click', (e) => {
 })
 
 
-memos.addEventListener('input', (e) => {
-    const taskId = e.target.closest('li').id
-
-    completeTask(taskId, e.target)
+memos.addEventListener('click', (e) => {
+    if (e.target.classList.contains('task-complete-button')) {
+        const taskId = e.target.closest('li').id
+        completeTask(taskId, e.target)
+    }
 })
 
 
@@ -67,10 +68,11 @@ function createTask(task) {
     const taskElementMarkup = `
     <li id="${task.id}">
         <div>
-            <input type="checkbox" name="tasks" ${task.isCompleted ? 'checked' : ''}>
+            <input class="task-complete-button" type="checkbox" name="tasks" ${task.isCompleted ? 'checked' : ''}>
             <span>${task.name}</span>
         </div>
         <button title="Remove the ${task.name}" class="remove-task">
+            <img class="remove-task" src="./delete.png" alt="Delete icon">
         </button>
     </li>
     `
@@ -111,7 +113,11 @@ function completeTask(taskId, element) {
     const task = tasksArray.find((task) => task.id === parseInt(taskId))
     const parent = element.closest('li')
 
-    task.isCompleted = !task.isCompleted
+    if (task.isCompleted) {
+        task.isCompleted = false;
+    } else {
+        task.isCompleted = true;
+    }
 
     if (task.isCompleted) {
         parent.classList.add('complete')

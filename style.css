@@ -1,23 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #1f1f1f;
 }
 
 header {
-    background-color: #3f8bb8;
+    background-color: #00a8db;
     padding: 50px;
     text-align: center;
     display: flex;
     justify-content: center;
 }
 
+#memo-input {
+    display: flex;
+}
+
 #memo-input input {
-    height: 44px;
+    height: 48px;
     width: 600px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    text-indent: 25px;
+    font-size: 20px;
+    border: none;
 }
 
 #memo-input button {
     height: 50px;
+    width: 80px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    border: none;
+    background-color: #caebff;
+}
+
+#memo-input button:hover {
+    cursor: pointer;
+    background-color: #b3d1e4;
 }
 
 main {
@@ -34,9 +57,11 @@ main {
 
 #stats li {
     padding: 0;
+    width: 120px;
+    height: 25px;
     list-style-type: none;
-    background-color: #3f8bb8;
-    width: 100px;
+    background-color: #00a8db;
+    
     text-align: center;
     padding: 10px;
     border-radius: 35px;
@@ -54,11 +79,11 @@ main {
 
 .memos li {
     text-decoration: none;
-    padding: 40px;
+    padding: 30px;
     width: 700px;
     height: 60px;
-    background-color: #ade1ff;
-    border-radius: 15px;
+    background-color: #90c7e7;
+    border-radius: 25px;
     font-size: 30px;
     display: flex;
     justify-content: space-between;
@@ -77,4 +102,12 @@ main {
 .memos li button {
     width: 30px;
     height: 30px;
+    background-color: transparent;
+    border: none;
+    display: grid;
+    place-content: center;
+}
+
+.memos li button:hover {
+    cursor: pointer;
 }
